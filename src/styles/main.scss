@@ -1,0 +1,61 @@
+.root {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.time-box-editor {
+  text-align: right;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+input {
+  min-width: 60%;
+  margin-left: 20px;
+  font-style: 16px;
+}
+
+button {
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.current-time-box {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+}
+
+.clock {
+  color: orangered;
+}
+
+.progress-bar {
+  position: relative;
+  border: 1px solid orangered;
+  border-radius: 4px;
+  height: 25px;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+.progress-bar > div {
+  width: calc(100% - 20.9%);
+  position: absolute;
+  right: 5px;
+  height: 25px;
+  background-color: orangered;
+}
+
+.inactive {
+  filter: blur(2px) grayscale(1);
+}
+
+.time-box {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px;
+}
