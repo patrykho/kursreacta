@@ -33,11 +33,10 @@ button {
 }
 
 .progress-bar {
-  // position: relative;
-  border: 1px solid orangered;
+  border: 1px solid black;
   border-radius: 4px;
 
-  margin-bottom: 20px;
+  margin: 20px;
   padding: 5px;
   div {
     // width: calc(100% - 20.9%);
