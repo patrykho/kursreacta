@@ -33,3 +33,5 @@ class EditableTimebox extends React.Component {
         </>);
     }
 }
+
+export default EditableTimebox

@@ -33,20 +33,19 @@ button {
 }
 
 .progress-bar {
-  position: relative;
+  // position: relative;
   border: 1px solid orangered;
   border-radius: 4px;
-  height: 25px;
+
   margin-bottom: 20px;
   padding: 5px;
-}
-
-.progress-bar > div {
-  width: calc(100% - 20.9%);
-  position: absolute;
-  right: 5px;
-  height: 25px;
-  background-color: orangered;
+  div {
+    // width: calc(100% - 20.9%);
+    // position: absolute;
+    right: 5px;
+    height: 25px;
+    background-color: orangered;
+  }
 }
 
 .inactive {

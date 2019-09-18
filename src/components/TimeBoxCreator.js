@@ -1,8 +1,8 @@
 import React, { useRef } from 'react'
 import uuid from 'uuid'
 
-export const TimeBoxCreator = ({ dataToUpdate, editing, onCreate }) => {
-    // const { indexToUpdate, title, time } = dataToUpdate
+export const TimeBoxCreator = ({ onCreate }) => {
+
     const titleRef = useRef(null)
     const timeRef = useRef(null)
 
@@ -18,11 +18,11 @@ export const TimeBoxCreator = ({ dataToUpdate, editing, onCreate }) => {
 
     return (<>
 
-        {editing && dataToUpdate ? (<p>{dataToUpdate.title} {dataToUpdate.indexToUpdate} {dataToUpdate.time}</p >) : (<form onSubmit={handleSumbmit} className="time-box-editor">
-            <label >Co robisz? <input type="text" ref={titleRef} /></label>
-            <label >Ile minut? <input type="number" ref={timeRef} /></label>
+        <form onSubmit={handleSumbmit} className="time-box-editor">
+            <label >Co robisz? <input type="text" ref={titleRef} /></label><br></br>
+            <label >Ile minut? <input type="number" ref={timeRef} /></label><br></br>
             <button>Dodaj timebox </button>
-        </form>)}
+        </form>)
 
     </>)
 }
