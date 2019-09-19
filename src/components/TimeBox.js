@@ -8,26 +8,14 @@ export const TimeBox = ({ title, totalTimeInMinutes, onDelete, onEdit }) => {
                 <p className="card-header-title">
                     TimeBox
           </p>
-                <a href="#" className="card-header-icon" aria-label="more options">
-                    <span className="icon">
-                        <i className="fas fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                </a>
             </header>
             <div className="card-content">
                 <div className="content">
                     <h3> {title} - {totalTimeInMinutes} min.</h3>
-
-
                 </div>
             </div>
-            <footer className="card-footer">
-                <a href="#" onClick={onDelete} className="card-footer-item button is-danger">Delete</a>
-                <a href="#" onClick={onEdit} className="card-footer-item button is-primary">Edit</a>
-
-            </footer>
+            <button onClick={onDelete} className=" button is-danger">Delete</button>
+            <button onClick={onEdit} className="button is-primary">Edit</button>
         </div >
-
-
     </>);
 }
