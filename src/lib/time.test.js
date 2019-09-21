@@ -1,4 +1,4 @@
-import { getMinutesAndSecondsFromDurationInSeconds } from '../../lib/time'
+import { getMinutesAndSecondsFromDurationInSeconds } from './time'
 
 describe("getMinutesAndSecondsFromDurationInSeconds:", () => {
     describe('1. for durations shorter than one minute', () => {
