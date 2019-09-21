@@ -3,6 +3,8 @@ import uuid from 'uuid'
 import { TimeBox } from '../components/TimeBox'
 import { TimeBoxCreator } from "../components/TimeBoxCreator";
 import { Modal } from '../components/Modal'
+import { ErrorBoundary } from './ErrorBoundary';
+
 export class TimeboxList extends React.Component {
     state = {
         timeboxes: [
@@ -15,6 +17,7 @@ export class TimeboxList extends React.Component {
 
         }
     };
+
     toggleModal = () => {
         console.log("toggleModal")
         this.setState({
@@ -61,11 +64,13 @@ export class TimeboxList extends React.Component {
         const { editing, dataToUpdate } = this.state
         return (<>
             <TimeBoxCreator onCreate={this.handleCreate} />
-            {editing ? (<Modal updateTimebox={this.updateTimebox} toggleModal={this.toggleModal} dataToUpdate={dataToUpdate} />) : ("")}
-            {this.state.timeboxes.map((timebox, index) => (<TimeBox onDelete={() => this.removeTimeBox(index)}
-                onEdit={() => this.updateTimebox(index, timebox.title, timebox.totalTimeInMinutes)}
-                key={index} title={timebox.title} totalTimeInMinutes={timebox.totalTimeInMinutes} />))}
+            <ErrorBoundary message={"Wystąpił błąd"}>
+                {editing ? (<Modal updateTimebox={this.updateTimebox} toggleModal={this.toggleModal} dataToUpdate={dataToUpdate} />) : ("")}
+                {this.state.timeboxes.map((timebox, index) => (<TimeBox onDelete={() => this.removeTimeBox(index)}
+                    onEdit={() => this.updateTimebox(index, timebox.title, timebox.totalTimeInMinutes)}
+                    key={index} title={timebox.title} totalTimeInMinutes={timebox.totalTimeInMinutes} />))}
 
+            </ErrorBoundary>
 
         </>);
     }

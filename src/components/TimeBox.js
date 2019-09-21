@@ -2,6 +2,10 @@ import React from 'react'
 
 
 export const TimeBox = ({ title, totalTimeInMinutes, onDelete, onEdit }) => {
+
+    if (totalTimeInMinutes <= 0) {
+        throw new Error("Całkowity czas musi być większy niz zero ")
+    }
     return (<>
         <div className="card time-box-editor">
             <header className="card-header">

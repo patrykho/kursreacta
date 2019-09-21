@@ -22,7 +22,7 @@ export const TimeBoxCreator = ({ onCreate }) => {
             <label >Co robisz? <input type="text" ref={titleRef} /></label><br></br>
             <label >Ile minut? <input type="number" ref={timeRef} /></label><br></br>
             <button>Dodaj timebox </button>
-        </form>)
+        </form>
 
     </>)
 }
