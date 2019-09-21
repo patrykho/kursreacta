@@ -3,9 +3,8 @@ import React from 'react';
 interface TimeBoxEditorInterface {
   title: string;
   totalTimeInMinutes: number;
-  handleForm: Function;
-  handleTitle: () => void;
-  handleTime: () => void;
+  handleTitle: (event: React.FormEvent<HTMLInputElement>) => void;
+  handleTime: (event: React.FormEvent<HTMLInputElement>) => void;
   onConfirm: () => void;
   isEditable: boolean;
 }
@@ -13,7 +12,6 @@ export const TimeBoxEditor = (props: TimeBoxEditorInterface) => {
   const {
     title,
     totalTimeInMinutes,
-    handleForm,
     handleTitle,
     handleTime,
     onConfirm,

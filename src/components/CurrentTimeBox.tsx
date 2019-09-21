@@ -1,15 +1,11 @@
-import React from 'react';
+import * as React from 'react';
+import {SyntheticEvent} from 'react';
+
 import {Clock} from './Clock';
 import {ProgressBar} from './ProgressBar';
 import {getMinutesAndSecondsFromDurationInSeconds} from '../lib/time';
 
 interface CurrentTimeBoxState {
-  state: {
-    isRunning: boolean;
-    isPaused: boolean;
-    pausesCount: number;
-    elapsedTimeInSeconds: number;
-  };
   isRunning: boolean;
   isPaused: boolean;
   pausesCount: number;
@@ -22,6 +18,8 @@ interface CurrentTimeBoxProps {
   totalTimeInMinutes: number;
   isEditable: boolean;
 }
+
+var intervalSetup: any = null;
 export class CurrentTimeBox extends React.Component<
   CurrentTimeBoxProps,
   CurrentTimeBoxState
@@ -42,7 +40,7 @@ export class CurrentTimeBox extends React.Component<
     });
     this.stopTimer();
   };
-  handleStart = (e: React.ChangeEvent<HTMLInputElement>) => {
+  handleStart = (e: SyntheticEvent) => {
     e.persist();
     console.log(
       '%c this.state: ',
@@ -74,12 +72,12 @@ export class CurrentTimeBox extends React.Component<
     });
   };
   stopTimer = () => {
-    window.clearInterval(this.intervalId);
-    this.intervalId = null;
+    window.clearInterval(intervalSetup);
+    intervalSetup = null;
   };
   startTimer = () => {
-    if (this.intervalId === null) {
-      this.intervalId = window.setInterval(() => {
+    if (intervalSetup === null) {
+      intervalSetup = window.setInterval(() => {
         console.log('timer works');
         this.setState(prevState => ({
           elapsedTimeInSeconds: prevState.elapsedTimeInSeconds + 0.01,

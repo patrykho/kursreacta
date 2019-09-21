@@ -1,4 +1,4 @@
-import React, {useRef, MouseEvent, SyntheticEvent} from 'react';
+import React, {useRef, SyntheticEvent} from 'react';
 
 interface ModalInterface {
   dataToUpdate: {

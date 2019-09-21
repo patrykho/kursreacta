@@ -1,25 +1,29 @@
-import React from 'react';
+import React, {SyntheticEvent, MouseEvent} from 'react';
 import {TimeBoxEditor} from './TimeBoxEditor';
 import {CurrentTimeBox} from './CurrentTimeBox';
-class EditableTimebox extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      title: 'Uczę się skrótów klawiszowych',
-      totalTimeInMinutes: 2,
-      isEditable: true,
-    };
-  }
+interface IState {
+  title: string;
+  totalTimeInMinutes: number;
+  isEditable: boolean;
+}
+class EditableTimebox extends React.Component<{}, IState> {
+  public state = {
+    title: 'Uczę się skrótów klawiszowych',
+    totalTimeInMinutes: 2,
+    isEditable: true,
+  };
 
-  handleTitle = e => {
-    const newTitle = e.target.value;
+  handleTitle = (event: React.FormEvent<HTMLInputElement>): void => {
+    const newTitle: string = event.currentTarget.value;
     this.setState({
       title: newTitle,
     });
   };
-  handleTime = e => {
-    const newTime = e.target.value;
+  handleTime = (event: React.FormEvent<HTMLInputElement>): void => {
+    const newTime: number = event.currentTarget.value
+      ? parseInt(event.currentTarget.value, 10)
+      : 0;
     this.setState({
       totalTimeInMinutes: newTime,
     });
