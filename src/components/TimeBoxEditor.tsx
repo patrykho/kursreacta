@@ -4,9 +4,9 @@ interface TimeBoxEditorInterface {
   title: string;
   totalTimeInMinutes: number;
   handleForm: Function;
-  handleTitle: Function;
-  handleTime: Function;
-  onConfirm: Function;
+  handleTitle: () => void;
+  handleTime: () => void;
+  onConfirm: () => void;
   isEditable: boolean;
 }
 export const TimeBoxEditor = (props: TimeBoxEditorInterface) => {

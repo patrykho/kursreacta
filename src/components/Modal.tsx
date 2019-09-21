@@ -4,7 +4,7 @@ interface ModalInterface {
   dataToUpdate: {
     indexToUpdate: number;
     title: string;
-    time: number;
+    time: string;
   };
   toggleModal: Function;
   updateTimebox: Function;
