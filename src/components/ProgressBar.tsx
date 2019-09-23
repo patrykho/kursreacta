@@ -1,13 +1,17 @@
-import React from 'react'
-import classN from 'classnames'
+import React from 'react';
+import classN from 'classnames';
 
-export const ProgressBar = ({ className, percent }) => {
-    const progressClassName = classN(
-        "progress-bar",
-        className
-    )
-
-    return (<div className={progressClassName}>
-        <div style={{ width: `${percent}%` }}></div>
-    </div>);
+interface ProgressBarInterface {
+  className: string;
+  percent: number;
 }
+
+export const ProgressBar = ({className, percent}: ProgressBarInterface) => {
+  const progressClassName = classN('progress-bar', className);
+
+  return (
+    <div className={progressClassName}>
+      <div style={{width: `${percent}%`}}></div>
+    </div>
+  );
+};

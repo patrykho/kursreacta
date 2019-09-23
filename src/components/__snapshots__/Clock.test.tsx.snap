@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Clock Given minutes and seconds (TestRenderer) then renders snapshot Clock  1`] = `
+<h2
+  className="clock inactive"
+>
+  Pozostało 
+  10
+  :
+  16
+</h2>
+`;
