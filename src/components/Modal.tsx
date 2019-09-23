@@ -4,7 +4,7 @@ interface ModalInterface {
   dataToUpdate: {
     indexToUpdate: number;
     title: string;
-    time: string;
+    time: number;
   };
   toggleModal: Function;
   updateTimebox: Function;
@@ -16,13 +16,17 @@ export const Modal = ({
   updateTimebox,
 }: ModalInterface) => {
   const {indexToUpdate, title, time} = dataToUpdate;
-
   const titleRef: any = useRef(null);
   const timeRef: any = useRef(null);
 
   const handleSumbmit = (event: SyntheticEvent): void => {
     event.preventDefault();
-    console.log('handleSumbmit');
+    console.log(
+      'handleSumbmit: ',
+      indexToUpdate,
+      titleRef.current.value,
+      timeRef.current.value,
+    );
     updateTimebox(indexToUpdate, titleRef.current.value, timeRef.current.value);
     titleRef.current.value = '';
     timeRef.current.value = '';
@@ -72,9 +76,9 @@ export const Modal = ({
                   <p className='control'>
                     <input
                       className='input is-rounded'
-                      defaultValue={time}
+                      defaultValue={time.toString()}
                       ref={timeRef}
-                      type='text'
+                      type='number'
                       placeholder='time'
                     />
                   </p>
