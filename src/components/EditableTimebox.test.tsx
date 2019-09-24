@@ -10,13 +10,19 @@ describe('<EditableTimebox>', () => {
       getByText('EDIT');
     });
   });
-  it('should ', () => {
-    const {debug, getByText} = render(<EditableTimebox />);
-    debug();
-    fireEvent.click(getByText('EDIT'));
-    debug();
+  it('should change task to new value ', () => {
+    const {debug, getByText, getByDisplayValue} = render(<EditableTimebox />);
+
+    fireEvent.change(getByDisplayValue('Uczę się skrótów klawiszowych'), {
+      target: {
+        value: 'Write some test',
+      },
+    });
+
+    fireEvent.click(getByText('Zatwierdź zmiany'));
+
     expect(() => {
-      getByText('EDIT');
+      getByText('Write some test');
     });
   });
 });

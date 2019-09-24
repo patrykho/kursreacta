@@ -13,17 +13,3 @@ exports[`<ProgressBar> Given className and percent (TestRenderer) then renders s
   />
 </div>
 `;
-
-exports[`<ProgressBar> Given className and seconds (TestRenderer) then renders snapshot Clock  1`] = `
-<div
-  className="progress-bar inactive"
->
-  <div
-    style={
-      Object {
-        "width": "90%",
-      }
-    }
-  />
-</div>
-`;

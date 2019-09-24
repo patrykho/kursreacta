@@ -20,7 +20,7 @@ export const TimeBoxEditor = (props: TimeBoxEditorInterface) => {
   return (
     <div className={`time-box-editor ${isEditable ? '' : 'inactive'}`}>
       <label>
-        Co robisz?{' '}
+        Co robisz?
         <input
           disabled={!isEditable}
           onChange={handleTitle}
