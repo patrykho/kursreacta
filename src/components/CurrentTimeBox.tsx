@@ -55,8 +55,6 @@ export class CurrentTimeBox extends React.Component<
   };
   togglePause = () => {
     this.setState(prevState => {
-      //  debugger
-      console.log(!prevState.isPaused);
       const isPaused = !prevState.isPaused;
       if (isPaused) {
         this.stopTimer();
@@ -78,11 +76,18 @@ export class CurrentTimeBox extends React.Component<
   startTimer = () => {
     if (intervalSetup === null) {
       intervalSetup = window.setInterval(() => {
-        console.log('timer works');
+        console.log('timer works: ', this.state.elapsedTimeInSeconds);
+
+        if (
+          this.state.elapsedTimeInSeconds >=
+          this.props.totalTimeInMinutes * 60
+        ) {
+          this.stopTimer();
+        }
         this.setState(prevState => ({
-          elapsedTimeInSeconds: prevState.elapsedTimeInSeconds + 0.01,
+          elapsedTimeInSeconds: prevState.elapsedTimeInSeconds + 1,
         }));
-      }, 10);
+      }, 1000);
     }
   };
 

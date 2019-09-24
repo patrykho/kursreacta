@@ -1,5 +1,5 @@
 import React from 'react';
-import {TimeBOxInterface} from './TimeBOxInterface';
+import {TimeBOxInterface} from './TimeBox.Interface';
 
 export const TimeBox = ({
   title,

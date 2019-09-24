@@ -13,7 +13,7 @@ export const Clock = ({
 }: ClockInterface) => {
   return (
     <h2 className={`clock ${className}`}>
-      Pozostało {minutes}:{seconds}
+      Pozostało {minutes > 9 ? minutes : `0${minutes}`}:{seconds>9? seconds: `0${seconds}`}
     </h2>
   );
 };

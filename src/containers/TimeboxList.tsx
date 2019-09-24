@@ -4,7 +4,7 @@ import {TimeBox} from '../components/TimeBox';
 import {TimeBoxCreator} from '../components/TimeBoxCreator';
 import {Modal} from '../components/Modal';
 import {ErrorBoundary} from './ErrorBoundary';
-import {TimeBOxInterface} from '../components/TimeBOxInterface';
+import {TimeBOxInterface} from '../components/TimeBox.Interface';
 interface Istate {
   timeboxes: never[];
   editing: boolean;
