@@ -9,7 +9,7 @@ export const TimeBox = ({
   index,
 }: TimeBOxInterface) => {
   if (totalTimeInMinutes <= 0) {
-    throw new Error('Całkowity czas musi być większy niz zero ');
+    throw new Error('The total time must be greater than zero');
   }
   return (
     <>

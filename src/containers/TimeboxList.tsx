@@ -5,7 +5,7 @@ import {TimeBoxCreator} from '../components/TimeBoxCreator';
 import {Modal} from '../components/Modal';
 import {ErrorBoundary} from './ErrorBoundary';
 import {TimeBOxInterface} from '../components/TimeBox.Interface';
-interface Istate {
+interface IState {
   timeboxes: never[];
   editing: boolean;
   dataToUpdate: {
@@ -14,7 +14,7 @@ interface Istate {
     time: number;
   };
 }
-export class TimeboxList extends React.Component<{}, Istate> {
+export class TimeboxList extends React.Component<{}, IState> {
   public state = {
     timeboxes: [],
     editing: false,
@@ -54,7 +54,7 @@ export class TimeboxList extends React.Component<{}, Istate> {
       editing: true,
       dataToUpdate: {indexToUpdate, title, time},
     });
-    const dataToUpdare = {
+    const dataToUpdate = {
       id: indexToUpdate,
       title,
       totalTimeInMinutes: time,
@@ -70,7 +70,7 @@ export class TimeboxList extends React.Component<{}, Istate> {
     this.setState(prevState => {
       const timeboxes: any = prevState.timeboxes.map(
         (timebox: any, index: number) =>
-          index === indexToUpdate ? dataToUpdare : timebox,
+          index === indexToUpdate ? dataToUpdate : timebox,
       );
       return {timeboxes};
     });
@@ -80,7 +80,7 @@ export class TimeboxList extends React.Component<{}, Istate> {
     return (
       <>
         <TimeBoxCreator onCreate={this.handleCreate} />
-        <ErrorBoundary message={'Wystąpił błąd'}>
+        <ErrorBoundary message={'An error occured'}>
           {editing ? (
             <Modal
               updateTimebox={this.updateTimebox}
