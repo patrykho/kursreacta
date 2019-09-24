@@ -17,26 +17,11 @@ describe('<RomanConverter>', () => {
       getByText('Roman:');
     }).not.toThrow();
   });
-  it('converts 1 to I', () => {
+  it.skip('converts 1997 to MCMXCVII', () => {
     const {getByLabelText, getByText} = render(<RomanConverter />);
-    fireEvent.change(getByLabelText(/arabic/i), {target: {value: '1'}});
+    fireEvent.change(getByLabelText(/arabic/i), {target: {value: '1997'}});
     expect(() => {
-      getByText('Roman: I');
-    }).not.toThrow();
-  });
-  it('converts 5 to V', () => {
-    const {getByLabelText, getByText} = render(<RomanConverter />);
-    fireEvent.change(getByLabelText(/arabic/i), {target: {value: '5'}});
-    expect(() => {
-      getByText('Roman: V');
-    }).not.toThrow();
-  });
-
-  it('does not convert 0 to any roman number', () => {
-    const {getByLabelText, getByText} = render(<RomanConverter />);
-    fireEvent.change(getByLabelText(/arabic/i), {target: {value: '0'}});
-    expect(() => {
-      getByText('Roman:');
+      getByText('Roman: MCMXCVII');
     }).not.toThrow();
   });
 });
