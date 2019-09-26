@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {arabicToRoman} from './arabicToRoman';
 
-export const RomanConverter = () => {
+export const ArabicConverter = () => {
   const [roman, setRoman] = useState();
   const handleChange = (event: React.FormEvent<HTMLInputElement>): void => {
     const value = event.currentTarget.value;
