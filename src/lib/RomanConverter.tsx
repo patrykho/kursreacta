@@ -4,7 +4,7 @@ import {arabicToRoman} from './arabicToRoman';
 export const RomanConverter = () => {
   const [roman, setRoman] = useState();
   const handleChange = (event: React.FormEvent<HTMLInputElement>): void => {
-    const value = parseInt(event.currentTarget.value, 10);
+    const value = event.currentTarget.value;
     setRoman(arabicToRoman(value));
   };
   return (
