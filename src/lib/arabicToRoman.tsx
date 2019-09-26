@@ -1,9 +1,10 @@
 export const arabicToRoman = (arabic: string) => {
-  const arabicTenArray: Array<string> = ['I', 'V', 'X'];
-  const arabicHundredArray: Array<string> = ['X', 'L', 'C'];
-  const arabicThousandArray: Array<string> = ['X', 'L', 'C'];
+  const romanTenArray: Array<string> = ['I', 'V', 'X'];
+  const romanHundredArray: Array<string> = ['X', 'L', 'C'];
+  const romanThousandArray: Array<string> = ['C', 'D', 'M'];
+  const romanTenThousand: Array<string> = ['M', 'ↁ', 'ↂ'];
 
-  const arabicTen = (numberString: string, arraySymbol: Array<string>) => {
+  const arabicToRoman = (numberString: string, arraySymbol: Array<string>) => {
     const number = parseInt(numberString, 10);
     let word = '';
     if (number >= 1 && number <= 3) {
@@ -22,12 +23,17 @@ export const arabicToRoman = (arabic: string) => {
 
   let roman = '';
   const stringArabicToArray = arabic.split('').reverse();
-
+  if (stringArabicToArray.length >= 4) {
+    roman += arabicToRoman(stringArabicToArray[3], romanTenThousand);
+  }
+  if (stringArabicToArray.length >= 3) {
+    roman += arabicToRoman(stringArabicToArray[2], romanThousandArray);
+  }
   if (stringArabicToArray.length >= 2) {
-    roman += arabicTen(stringArabicToArray[1], arabicHundredArray);
+    roman += arabicToRoman(stringArabicToArray[1], romanHundredArray);
   }
   if (stringArabicToArray.length >= 1) {
-    roman += arabicTen(stringArabicToArray[0], arabicTenArray);
+    roman += arabicToRoman(stringArabicToArray[0], romanTenArray);
   }
 
   return roman;
